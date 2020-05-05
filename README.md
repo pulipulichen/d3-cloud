@@ -168,3 +168,9 @@ function() { return document.createElement("canvas"); }
 
 When using Node.js, you will almost definitely override this default, e.g.
 using the [canvas module](https://www.npmjs.com/package/canvas).
+
+----
+
+# Demo
+
+https://pulipulichen.github.io/d3-cloud/index.html
