@@ -46,3 +46,28 @@ function receiveMessage(event)
 }
 
 window.addEventListener("message", receiveMessage, true);
+
+let api = PuliPostMessageAPI()
+
+api.addReceiveListener(function (data) {
+  document.getElementById('text').value = data
+  document.getElementById('go').click()
+
+  // 等待svg讀取完成
+  var lastSVG
+  var waitSVG = function () {
+    var svg = document.getElementById('vis').innerHTML
+    if (lastSVG !== svg) {
+      lastSVG = svg
+      setTimeout(function () {
+        waitSVG()
+      }, 1000)
+    }
+    else {
+      event.source.postMessage({
+        svg: svg
+      },event.origin);
+    }
+  }
+  waitSVG()
+})
