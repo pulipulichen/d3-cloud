@@ -51,7 +51,7 @@ div#vis > svg:first-of-type {
 <hr>
 
 <div style="float: right; text-align: right">
-  <p><label for="max">Number of words:</label> <input type="number" value="250" min="1" id="max">
+  <p><label for="max">Number of words:</label> <input type="number" value="500" min="1" id="max">
   <p><label for="per-line"><input type="checkbox" id="per-line"> One word per line</label>
   <!--<p><label for="colours">Colours:</label> <a href="#" id="random-palette">get random palette</a>-->
   <p><label>Download:</label>
@@ -59,6 +59,13 @@ div#vis > svg:first-of-type {
     <a href="https://svgtopng.com/" target="svg2png">
       <button id="download-png-button" type="button">SVG to PNG</button>
     </a>
+  </p>
+  <p><label>WordClouds.com:</label>
+    <button id="download-word-clouds-data" type="button">Text File</button>
+    <a href="https://www.wordclouds.com/" target="wordclouds">
+      <button type="button">OEPN</button>
+    </a>
+  </p>
 </div>
 
 <div style="float: left">
@@ -67,9 +74,9 @@ div#vis > svg:first-of-type {
     <label for="rectangular"><input type="radio" name="spiral" id="rectangular" value="rectangular"> Rectangular</label>
   <p><label for="scale">Scale:</label>
     <!-- <label for="scale-auto"><input type="radio" name="scale" id="scale-log" value="auto"> auto</label> -->
-    <label for="scale-log"><input type="radio" name="scale" id="scale-log" value="log" checked="checked"> log n</label>
+    <label for="scale-log"><input type="radio" name="scale" id="scale-log" value="log"> log n</label>
     <label for="scale-sqrt"><input type="radio" name="scale" id="scale-sqrt" value="sqrt"> √n</label>
-    <label for="scale-linear"><input type="radio" name="scale" id="scale-linear" value="linear"> n</label>
+    <label for="scale-linear"><input type="radio" name="scale" id="scale-linear" value="linear" checked="checked"> n</label>
   <p><label for="font">Font:</label> <input type="text" id="font" value="Impact">
 </div>
 
@@ -88,6 +95,9 @@ div#vis > svg:first-of-type {
 
 <script src="d3.min.js"></script>
 <script src="cloud-nostopwords.js"></script>
-<script src="download-png.js"></script>
+
+<script src="vendors/date-helper.js"></script>
+<script src="vendors/FileSaver.js"></script>
+<script src="word-clouds.js"></script>
 <script src="vendors/puli-post-message-api/puli-post-message-api.min.js"></script>
 <script src="post-message.js"></script>
