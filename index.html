@@ -55,9 +55,10 @@ div#vis > svg:first-of-type {
   <p><label for="per-line"><input type="checkbox" id="per-line"> One word per line</label>
   <!--<p><label for="colours">Colours:</label> <a href="#" id="random-palette">get random palette</a>-->
   <p><label>Download:</label>
-    <button id="download-svg">SVG</button>
-    <!-- <button id="download-png" onclick="downloadPNG">PNG</button>-->
-    
+    <button id="download-svg" type="button">SVG</button>
+    <a href="https://svgtopng.com/" target="svg2png">
+      <button id="download-png-button" type="button">SVG to PNG</button>
+    </a>
 </div>
 
 <div style="float: left">
@@ -87,5 +88,6 @@ div#vis > svg:first-of-type {
 
 <script src="d3.min.js"></script>
 <script src="cloud-nostopwords.js"></script>
+<script src="download-png.js"></script>
 <script src="vendors/puli-post-message-api/puli-post-message-api.min.js"></script>
 <script src="post-message.js"></script>
