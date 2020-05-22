@@ -55,8 +55,9 @@ div#vis > svg:first-of-type {
   <p><label for="per-line"><input type="checkbox" id="per-line"> One word per line</label>
   <!--<p><label for="colours">Colours:</label> <a href="#" id="random-palette">get random palette</a>-->
   <p><label>Download:</label>
-    <button id="download-svg">SVG</button><!-- |
-    <a id="download-png" href="#">PNG</a>-->
+    <button id="download-svg">SVG</button>
+    <!-- <button id="download-png" onclick="downloadPNG">PNG</button>-->
+    
 </div>
 
 <div style="float: left">
@@ -64,6 +65,7 @@ div#vis > svg:first-of-type {
     <label for="archimedean"><input type="radio" name="spiral" id="archimedean" value="archimedean" checked="checked"> Archimedean</label>
     <label for="rectangular"><input type="radio" name="spiral" id="rectangular" value="rectangular"> Rectangular</label>
   <p><label for="scale">Scale:</label>
+    <!-- <label for="scale-auto"><input type="radio" name="scale" id="scale-log" value="auto"> auto</label> -->
     <label for="scale-log"><input type="radio" name="scale" id="scale-log" value="log" checked="checked"> log n</label>
     <label for="scale-sqrt"><input type="radio" name="scale" id="scale-sqrt" value="sqrt"> √n</label>
     <label for="scale-linear"><input type="radio" name="scale" id="scale-linear" value="linear"> n</label>
@@ -84,6 +86,6 @@ div#vis > svg:first-of-type {
 </form>
 
 <script src="d3.min.js"></script>
-<script src="cloud-nostopwords.min.js"></script>
+<script src="cloud-nostopwords.js"></script>
 <script src="vendors/puli-post-message-api/puli-post-message-api.min.js"></script>
 <script src="post-message.js"></script>
