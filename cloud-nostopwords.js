@@ -654,12 +654,59 @@ function downloadPNG() {
     echoInput.attr("value", t.toDataURL("image/png")),
     echoForm.node().submit();
 }
+
+Date.prototype.mmddhhmm = function() {
+  var mm = this.getMonth() < 9 ? "0" + (this.getMonth() + 1) : (this.getMonth() + 1); // getMonth() is zero-based
+  var dd = this.getDate() < 10 ? "0" + this.getDate() : this.getDate();
+  var hh = this.getHours() < 10 ? "0" + this.getHours() : this.getHours();
+  var min = this.getMinutes() < 10 ? "0" + this.getMinutes() : this.getMinutes();
+  
+  return "".concat(mm)
+          .concat(dd)
+          .concat('-')
+          .concat(hh)
+          .concat(min)
+};
+
+
 function downloadSVG() {
+  let svgHTML = svg.attr("version", "1.1").attr("xmlns", "http://www.w3.org/2000/svg").node().parentNode.innerHTML
+  svgHTML = svgHTML.slice(svgHTML.lastIndexOf('<svg '))
+  //console.log(words)
+  
+  //let text = document.getElementById('text').value
+  //text = text.trim()
+  //if (text.length > 10) {
+  //  text = text.slice(0, 10).trim()
+  //}
+  let text = words.splice(0,5).map(word => word.text).join(' ')
+  
+  let filename = (new Date()).mmddhhmm() + '_' + text + '.svg' 
+  
+  downloadStringFile(svgHTML, 'image/svg+xml', filename)
+  /*
   d3.event.preventDefault(),
     echoContentType.attr("value", "image/svg+xml;charset=utf-8"),
-    echoInput.attr("value", svg.attr("version", "1.1").attr("xmlns", "http://www.w3.org/2000/svg").node().parentNode.innerHTML),
+    echoInput.attr("value", svgHTML),
     echoForm.node().submit();
+   */
 }
+function downloadStringFile(content, mime, fileName) {
+    
+    
+      var blob = new Blob([content], {type: mime});
+//      if(window.navigator.msSaveOrOpenBlob) {
+//          window.navigator.msSaveBlob(blob, filename);
+//      }
+//      else{
+        var elem = window.document.createElement('a');
+        elem.href = window.URL.createObjectURL(blob);
+        elem.download = fileName;        
+        document.body.appendChild(elem);
+        elem.click();        
+        document.body.removeChild(elem);
+//      }
+  }
 !(function (t) {
   function e() {
     function t(t, n, a) {

@@ -1,3 +1,5 @@
+/* global Infinity */
+
 // Word cloud layout by Jason Davies, https://www.jasondavies.com/wordcloud/
 // Algorithm due to Jonathan Feinberg, http://static.mrfeinberg.com/bv_ch03.pdf
 
@@ -293,7 +295,7 @@ function cloudSprite(contextAndRatio, d, data, di) {
     // Zero the buffer
     for (var i = 0; i < h * w32; i++) sprite[i] = 0;
     x = d.xoff;
-    if (x == null) return;
+    if (x === null) return;
     y = d.yoff;
     var seen = 0,
         seenRow = -1;
