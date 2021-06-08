@@ -1,6 +1,7 @@
 document.getElementById('download-word-clouds-data').addEventListener('click', function () {
   let t = d3.select("#text").property("value")
   
+  /*
   var tags = {};
   var e = {},
     n = d3.select("#per-line").property("checked");
@@ -15,6 +16,8 @@ document.getElementById('download-word-clouds-data').addEventListener('click', f
     });
   
   let output = tags.map(({key, value}) => key + '\t' + value).join('\n')
+  */
+  let output = t
   
   var blob = new Blob([output], {type: "text/plain;charset=utf-8"});
   saveAs(blob, 'word-cloud_' + (new Date()).mmddhhmm() + '.txt')

@@ -56,9 +56,12 @@ div#vis > svg:first-of-type {
   <!--<p><label for="colours">Colours:</label> <a href="#" id="random-palette">get random palette</a>-->
   <p><label>Download:</label>
     <button id="download-svg" type="button">SVG</button>
+    <!--
     <a href="https://svgtopng.com/" target="svg2png">
       <button id="download-png-button" type="button">SVG to PNG</button>
     </a>
+    -->
+    <button id="download-png-button" type="button">PNG</button>
   </p>
   <p><label>WordClouds.com:</label>
     <button id="download-word-clouds-data" type="button">Text File</button>
@@ -99,5 +102,6 @@ div#vis > svg:first-of-type {
 <script src="vendors/date-helper.js"></script>
 <script src="vendors/FileSaver.js"></script>
 <script src="word-clouds.js"></script>
+<script src="vendors/svg-to-png.js"></script>
 <script src="vendors/puli-post-message-api/puli-post-message-api.min.js"></script>
 <script src="post-message.js"></script>
